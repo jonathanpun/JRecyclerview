@@ -1,0 +1,2 @@
+include ':app', ':jrecyclerview'
+rootProject.name='Sample'
