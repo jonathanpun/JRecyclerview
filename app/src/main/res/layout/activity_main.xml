@@ -9,6 +9,8 @@
 <com.jpun.jrecyclerview.JRecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/activity_main_recyclerview"/>
+    android:id="@+id/activity_main_recyclerview"
+    app:layoutMode="Grid"
+    app:spanCount="3"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

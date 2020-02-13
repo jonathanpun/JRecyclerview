@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="JRecyclerView">
+        <attr name="layoutMode">
+            <enum name="LinearHorizontal" value="0"/>
+            <enum name="LinearVertical" value="1"/>
+            <enum name="Grid" value="2"/>
+        </attr>
+        <attr name="spanCount"/>
+
+    </declare-styleable>
+</resources>
