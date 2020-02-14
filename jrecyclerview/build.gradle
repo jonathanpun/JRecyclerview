@@ -1,6 +1,34 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+
+    bintrayRepo = "JRecyclerview"
+    bintrayName = "com.jpun.jrecyclerview"
+
+    publishedGroupId = 'com.jpun.jrecyclerview'
+    libraryName = 'jrecyclerview'
+    artifact = 'jrecyclerview'
+
+    libraryDescription = 'A wrapped recyclerview to make reusing row(cells) easiler'
+
+    siteUrl = 'https://github.com/jonathanpun/JRecyclerview'
+    gitUrl = 'https://github.com/jonathanpun/JRecyclerview.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'jonathanpun'
+    developerName = 'Jonathan Pun'
+    developerEmail = 'jpppun@gmail.com'
+
+    licenseName = 'MIT'
+    licenseUrl = ''
+    allLicenses = ["MIT"]
+}
+
 android {
     compileSdkVersion 28
 
@@ -34,4 +62,16 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
+//the bintray/jcenter part was copied from https://android.jlelse.eu/publishing-your-android-kotlin-or-java-library-to-jcenter-from-android-studio-1b24977fe450
+//key command
+//gradlew install  build the package
+//gradlew bintrayUpload upload the package to bintray
+
+
+//Add these lines to publish library to bintray. This is the readymade scripts made by github user nuuneoi to make uploading to bintray easy.
+//Place it at the end of the file
+if (project.rootProject.file('local.properties').exists()) {
+    apply from: 'https://raw.githubusercontent.com/wajahatkarim3/JCenter-Gradle-Scripts/master/install.gradle'
+    apply from: 'https://raw.githubusercontent.com/wajahatkarim3/JCenter-Gradle-Scripts/master/bintray.gradle'
 }
