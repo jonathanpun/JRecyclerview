@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class JRecyclerView:RecyclerView,JRecyclerViewAction{
     private val adapter=JAdapter()
+    private val spacingDecorator=JSpacingDecorator()
     init {
         layoutManager=LinearLayoutManager(context)
         setAdapter(adapter)
@@ -20,7 +21,12 @@ class JRecyclerView:RecyclerView,JRecyclerViewAction{
                 1->setLinearVerticalLayoutManager()
                 2->setGridLayoutManager(getInteger(R.styleable.JRecyclerView_spanCount,2))
             }
-        }
+            val startSpacing=getDimensionPixelOffset(R.styleable.JRecyclerView_startSpacing,0)
+            val endSpacing=getDimensionPixelOffset(R.styleable.JRecyclerView_endSpacing,0)
+            val horizontalSpacing=getDimensionPixelOffset(R.styleable.JRecyclerView_horizontalSpacing,0)
+            val verticlaSpacing=getDimensionPixelOffset(R.styleable.JRecyclerView_verticalSpacing,0)
+            setSpacingDecorator(startSpacing,endSpacing,horizontalSpacing,verticlaSpacing)
+        }.recycle()
     }
 
     private fun setLinearHorizontalLayoutManager(){
@@ -36,6 +42,17 @@ class JRecyclerView:RecyclerView,JRecyclerViewAction{
     private fun setGridLayoutManager(spanCount:Int){
         layoutManager=GridLayoutManager(context,spanCount)
     }
+    private fun setSpacingDecorator(startSpacing:Int, endSpacing:Int, horizontalSpacing:Int,verticalSpacing:Int){
+        addItemDecoration(spacingDecorator.apply {
+            this.startSpacing=startSpacing
+            this.endSpacing=endSpacing
+            this.horizontalSpacing=horizontalSpacing
+            this.verticalSpacing=verticalSpacing
+        })
+
+    }
+
+    fun getCells()=adapter.getCells()
 
 
     override fun addCell(cell:JCell<*>){

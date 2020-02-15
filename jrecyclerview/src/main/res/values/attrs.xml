@@ -7,6 +7,10 @@
             <enum name="Grid" value="2"/>
         </attr>
         <attr name="spanCount"/>
+        <attr name="startSpacing" format="dimension"/>
+        <attr name="endSpacing" format="dimension"/>
+        <attr name="horizontalSpacing" format="dimension"/>
+        <attr name="verticalSpacing" format="dimension"/>
 
     </declare-styleable>
 </resources>

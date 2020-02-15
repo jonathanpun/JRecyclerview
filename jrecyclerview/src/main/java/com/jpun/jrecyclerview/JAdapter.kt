@@ -87,6 +87,7 @@ class JAdapter():RecyclerView.Adapter<JCell.JViewHolder>(),JRecyclerViewAction{
         Collections.swap(cellList,fromPosition,toPosition)
         notifyItemMoved(fromPosition,toPosition)
     }
+    fun getCells()=cellList.toList()
 
 
 

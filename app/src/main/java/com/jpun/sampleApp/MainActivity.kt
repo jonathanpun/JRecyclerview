@@ -1,5 +1,6 @@
 package com.jpun.sampleApp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -38,21 +39,15 @@ class MainActivity : AppCompatActivity(),JCellClickListener,JCellLongClickListen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        recyclerView=activity_main_recyclerview
-        (1..10).map { Animal("Animal $it") }.forEach {
-            recyclerView.addCell(AnimalCell(it).apply {
-                setCellClickListener(this@MainActivity)
-            })
-
-
+        activity_main_linear_horizontal.setOnClickListener {
+            startActivity(Intent(this,LinearHorizontalActivity::class.java))
         }
-        (1..10).map { Movie("Animal $it",it.toFloat()) }.forEach {
-            recyclerView.addCell(MovieCell(it).apply {
-                setCellLongClickListener(this@MainActivity)
-            })
+        activity_main_linear_vertical.setOnClickListener {
+            startActivity(Intent(this,LinearVerticalActivity::class.java))
         }
-        recyclerView.removeCell(0)
-        recyclerView.moveCell(0,1)
+        activity_main_grid.setOnClickListener {
+            startActivity(Intent(this,GridActivity::class.java))
+        }
 
     }
 }
